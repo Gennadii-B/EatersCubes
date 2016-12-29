@@ -7,6 +7,8 @@ import java.util.Random;
 
 /**
  * Created by gendy on 28.12.16.
+ * создает с заданной переодичностью в CollectionCubes
+ * N количество кубов
  */
 public class Creator implements Runnable {
 
@@ -15,6 +17,8 @@ public class Creator implements Runnable {
     private int sleepTime;
     private int startAmount;
 
+//при создании можно задать время ожидания создания объектов
+//и стартовое количество создаваемых объектов
     public Creator(int sleepTime, int startAmount) {
         this.startAmount = startAmount;
         this.sleepTime = sleepTime * 1000;
@@ -23,10 +27,10 @@ public class Creator implements Runnable {
     @Override
     public void run() {
         while(true){
-
             amountCubes = startAmount + random.nextInt(10);
             createCubes(amountCubes);
-            System.out.println("кубов добавлено в коллекцию ///- " + CollectionCubes.getCubes().size() + " -///");
+            System.out.println("кубов добавлено в коллекцию ///- "
+                    + CollectionCubes.getCubes().size() + " -///");
             threadSleep();
         }
     }

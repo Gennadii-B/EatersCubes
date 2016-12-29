@@ -16,7 +16,7 @@ public class ThreadsDispatcher implements Runnable {
     @Override
     public void run() {
         while(true){
-
+            //если коллекция не пуста пробуждает потоки Eaters
                 if(!CollectionCubes.getCubes().isEmpty()) {
                     synchronized (lock) {
                     System.out.println("eaters пробудились");

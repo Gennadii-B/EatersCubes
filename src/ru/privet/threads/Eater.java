@@ -12,6 +12,7 @@ public class Eater implements Runnable {
     String name;
     Object lock;
 
+//при создании задается ячейка коллекции за которой будет следить eater
     public Eater(int processeRange, Object l) {
         this.processeRange = processeRange;
         this.lock = l;
@@ -32,7 +33,8 @@ public class Eater implements Runnable {
             }
         }
     }
-
+//отталкиваясь от проверяемой ячейки коллекции проверяет есть ли
+//объекты для обработки, если нет ждет
     private void processe() throws ArrayIndexOutOfBoundsException, NullPointerException{
             if (CollectionCubes.getCubes().size() >= processeRange + 1) {
                 cube = CollectionCubes.getCubes().remove(processeRange);
